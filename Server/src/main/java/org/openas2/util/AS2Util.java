@@ -691,11 +691,13 @@ public class AS2Util {
     {
     	String msgId = msg.getMessageID(); // this includes enclosing angled brackets <>
     	String dir = (String) processor.getParameters().get(directoryIdentifier);
-    	if (msgId == null || msgId.length() < 1)
-    	{
+    	if (msgId == null || msgId.length() < 1) {
     		// No ID set yet so generate a random string for uniqueness
     		msgId = AS2Util.generateMessageID(msg);
     	}
+        if (msgId.charAt(0) == '<' && msgId.charAt(msgId.length() - 1) == '>') {
+            msgId = msgId.substring(1, msgId.length() - 1);
+        }
 		return (dir	+ "/" + msgId);
     }
     /*

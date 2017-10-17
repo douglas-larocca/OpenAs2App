@@ -112,6 +112,7 @@ public abstract class BaseMessageMDN implements MessageMDN {
     }
 
     public String getMessageID() {
+        /*
         String msgId = getHeader("Message-ID");
         if (msgId != null && msgId.length() > 0) {
             if (msgId.charAt(0) == '<' && msgId.charAt(msgId.length() - 1) == '>') {
@@ -119,6 +120,8 @@ public abstract class BaseMessageMDN implements MessageMDN {
             }
         }
         return msgId;
+        */
+        return getHeader("Message-ID");
     }
 
     public void setMessageID(String messageID)

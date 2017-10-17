@@ -237,6 +237,7 @@ public abstract class BaseMessage implements Message {
     }
 
     public String getMessageID() {
+        /*
         String msgId = getHeader("Message-ID");
         if (msgId != null && msgId.length() > 0) {
             if (msgId.charAt(0) == '<' && msgId.charAt(msgId.length() - 1) == '>') {
@@ -244,6 +245,8 @@ public abstract class BaseMessage implements Message {
             }
         }
         return msgId;
+        */
+        return getHeader("Message-ID");
     }
 
     public void setMessageID(String messageID)
